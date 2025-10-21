@@ -19,7 +19,11 @@ export class Name {
 
     /** Expects that all Name components are properly masked */
     constructor(other: string[], delimiter?: string) {
-        throw new Error("needs implementation or deletion");
+        if (delimiter) {
+            this.delimiter = delimiter;
+        }
+
+        this.components = other;
     }
 
     /**
@@ -29,7 +33,7 @@ export class Name {
      */
     // @methodtype conversion-method
     public asString(delimiter: string = this.delimiter): string {
-        throw new Error("needs implementation or deletion");
+        return this.components.join(delimiter);
     }
 
     /** 
@@ -39,40 +43,40 @@ export class Name {
      */
     // @methodtype conversion-method
     public asDataString(): string {
-        throw new Error("needs implementation or deletion");
+        return this.components.join(this.delimiter);
     }
 
     // @methodtype get-method
     public getComponent(i: number): string {
-        throw new Error("needs implementation or deletion");
+        return this.components[i];
     }
 
     /** Expects that new Name component c is properly masked */
     // @methodtype get-method
     public setComponent(i: number, c: string): void {
-        throw new Error("needs implementation or deletion");
+        this.components[i] = c;
     }
 
     /** Returns number of components in Name instance */
     // @methodtype get-method
     public getNoComponents(): number {
-        throw new Error("needs implementation or deletion");
+        return this.components.length;
     }
 
     /** Expects that new Name component c is properly masked */
     // @methodtype set-method
     public insert(i: number, c: string): void {
-        throw new Error("needs implementation or deletion");
+        this.components = this.components.slice(0, i).concat([c]).concat(this.components.slice(i));
     }
 
     /** Expects that new Name component c is properly masked */
     // @methodtype command-method
     public append(c: string): void {
-        throw new Error("needs implementation or deletion");
+        this.components.push(c);
     }
 
     // @methodtype command-method
     public remove(i: number): void {
-        throw new Error("needs implementation or deletion");
+        this.components.splice(i, 1);
     }
 }
