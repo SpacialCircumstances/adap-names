@@ -14,7 +14,6 @@ export const ESCAPE_CHARACTER = '\\';
  * "Oh\.\.\." is a name with one component, if the delimiter character is '.'.
  */
 export class Name {
-
     private delimiter: string = DEFAULT_DELIMITER;
     private components: string[] = [];
 
@@ -28,6 +27,7 @@ export class Name {
      * Control characters are not escaped (creating a human-readable string)
      * Users can vary the delimiter character to be used
      */
+    // @methodtype conversion-method
     public asString(delimiter: string = this.delimiter): string {
         throw new Error("needs implementation or deletion");
     }
@@ -37,36 +37,42 @@ export class Name {
      * Machine-readable means that from a data string, a Name can be parsed back in
      * The control characters in the data string are the default characters
      */
+    // @methodtype conversion-method
     public asDataString(): string {
         throw new Error("needs implementation or deletion");
     }
 
+    // @methodtype get-method
     public getComponent(i: number): string {
         throw new Error("needs implementation or deletion");
     }
 
     /** Expects that new Name component c is properly masked */
+    // @methodtype get-method
     public setComponent(i: number, c: string): void {
         throw new Error("needs implementation or deletion");
     }
 
-     /** Returns number of components in Name instance */
-     public getNoComponents(): number {
+    /** Returns number of components in Name instance */
+    // @methodtype get-method
+    public getNoComponents(): number {
         throw new Error("needs implementation or deletion");
     }
 
     /** Expects that new Name component c is properly masked */
+    // @methodtype set-method
     public insert(i: number, c: string): void {
         throw new Error("needs implementation or deletion");
     }
 
     /** Expects that new Name component c is properly masked */
+    // @methodtype command-method
     public append(c: string): void {
         throw new Error("needs implementation or deletion");
     }
 
+    // @methodtype command-method
     public remove(i: number): void {
         throw new Error("needs implementation or deletion");
     }
-
 }
