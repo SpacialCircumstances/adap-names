@@ -32,8 +32,9 @@ export class Name {
      * Users can vary the delimiter character to be used
      */
     // @methodtype conversion-method
-    public asString(delimiter: string = this.delimiter): string {
-        return this.components.join(delimiter);
+    public asString(delimiter: string = this.delimiter): string {       
+        const re = `${ESCAPE_CHARACTER}(.)`;
+        return this.components.map((s) => s.replaceAll(re, (_, c) => c)).join(delimiter);
     }
 
     /** 
